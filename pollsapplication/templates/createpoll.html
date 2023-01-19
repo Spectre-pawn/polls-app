@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}Create poll{% endblock title %}
+{%block body%}
+{% for message in messages  %}            
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message : </strong> {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endfor %} 
+<div class="container my-5">
+<div class="row ">
+    <div class="col-lg-8 col-lg-offset-2 " >
+        <div class="panel panel-default ">
+            <div class="panel-heading">
+                <h3 class="panel-title">Create A New Poll</h3>
+            </div>
+                
+            <form action= "create" enctype="multipart/form-data" method='post'>
+                {% csrf_token %}
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="cate">Category</label>
+                                <input type="text" class="form-control" name="cate" id="cate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quest">Enter Poll Question</label>
+                                <textarea name="quest" cols="40" rows="3" class="form-control"  id="quest" spellcheck="false" required></textarea>
+                           
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="opt1">Option 1</label>
+                                <input type="text" class="form-control" name="opt1" id="opt1" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="opt2">Option 2</label>
+                                <input type="text" class="form-control" name="opt2" id="opt2" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="opt3">Option 3</label>
+                                <input type="text" class="form-control"name="opt3" id="opt3"  required>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="opt4">Option 4</label>
+                                <input type="text" class="form-control" name="opt4" id="opt4" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <hr />
+                        <div class="col-lg-4">
+                            <button type="submit" class="btn btn-primary mb-3 float-right">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+</div>
+{%endblock%}

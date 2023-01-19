@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Vote now{% endblock title %}
+
+
+{% block body%}
+<style>
+.container{
+    width: 50%;
+    /* border: 2px solid black; */
+    margin-top: 20px;
+}
+.list-group{
+    margin-top: 30px;
+
+}</style>
+<div class='container'>
+<h3 style = "margin-bottom: 20px"><strong>Give your</strong></h3>
+
+<h4>{{poll.question}}</h4>
+
+
+                        <form method="POST">
+                            {% csrf_token %}
+                            <ul class="list-group" style="margin:0px">
+                                
+                                
+                                <label>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-3" type="radio" name = 'poll' value="option1" aria-label="...">
+                                        {{ poll.option_1 }}
+                                      </li>
+                                </label>
+                                <label>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="radio" name = 'poll' value="option2" aria-label="...">
+                                        {{ poll.option_2}}
+                                      </li>
+                                </label>
+                                <label>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="radio" name = 'poll' value="option3" aria-label="...">
+                                        {{ poll.option_3 }}
+                                      </li>
+                                </label>
+                                <label>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="radio" name = 'poll' value="option4" aria-label="...">
+                                        {{ poll.option_4 }}
+                                      </li>
+                                </label>
+                            </ul>
+                            
+                            
+                            <hr />
+
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        </form>
+                    </div>                        
+{% endblock %}

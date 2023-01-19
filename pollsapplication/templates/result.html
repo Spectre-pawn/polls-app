@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}result{% endblock title %}
+{%block body%}
+<div class='container'>
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Poll Result</h3>
+            </div>
+
+            <div class="panel-body">
+                <h3>{{ poll.question }}</h3>
+            </div>
+
+            <ul class="list-group">
+                <li class="list-group-item">{{ poll.option_1 }} &mdash; <strong>{{ poll.count_opt_1 }}</strong></li>
+                <li class="list-group-item">{{ poll.option_2}} &mdash; <strong>{{ poll.count_opt_2 }}</strong></li>
+                <li class="list-group-item">{{ poll.option_3}} &mdash; <strong>{{ poll.count_opt_3 }}</strong></li>
+                <li class="list-group-item">{{ poll.option_4}} &mdash; <strong>{{ poll.count_opt_4 }}</strong></li>
+            </ul>
+
+            <div class="panel-footer">
+                Total &mdash; <strong>{{ poll.total }}</strong>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+{%endblock%}

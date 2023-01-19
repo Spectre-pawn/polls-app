@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Mypoll{% endblock title %}
+{% block myactive %} active {% endblock myactive %}
+{% block body%}
+<div class="container">
+   
+<div class="row my-5">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <a class="btn btn-primary mb-3 float-right" href="{% url 'createpoll'%}" role="button"><i class="fas fa-plus"> </i> Create </a> 
+            <div class="panel-heading">
+                <h3 class="panel-title">My Polls</h3>
+               
+                
+           
+            <div class="list-group">
+                {% for poll in polls %}
+                <a href="{%url 'vote' poll.id %} " class="list-group-item list-group-item-action">
+                    <h5>{{poll.question}}</h5></a>
+               {% endfor %}
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>
+{%endblock body%}
